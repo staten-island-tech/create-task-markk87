@@ -7,8 +7,9 @@ async function getActivity(){
         console.log(response);
         const data = await response.json();
         console.log(data);
+        
         if (data.result === "success") {
-            DOMSelectors.button.addEventListener("submit", function(event) {
+            DOMSelectors.button.addEventListener("click", function(event) {
                 event.preventDefault();
             
                 
@@ -18,9 +19,9 @@ async function getActivity(){
         }
 
 
-        function inputData(data) {
+        function inputData() {
             const randomActivity = data.activity
-            DOMSelectors.gallery.insertAdjacentHTML("beforeend", `<div class=card><button class=remove>Clear</button><h2> ${DOMSelectors.nameInput.value} : ${DOMSelectors.emailInput.value} : ${DOMSelectors.ageInput.value}</h2></div>`)
+            DOMSelectors.gallery.insertAdjacentHTML("beforeend", `<div class=card><h2> ${data.activity}</h2></div>`)
            }
     } catch (error) {
     console.error("Not yet")
@@ -31,12 +32,9 @@ async function getActivity(){
 
 
 const DOMSelectors = {
-    form: document.querySelector("#form"),
-    gallery: document.querySelector(".gallery"),
-    button: document.querySelector(".submitAll"),
-    nameInput: document.querySelector(".fullName"),
-    emailInput: document.querySelector(".emailInput"),
-    ageInput: document.querySelector(".ageInput")
+
+    button: document.querySelector(".mainButton"),
+    
 };
 
 
