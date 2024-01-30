@@ -9,13 +9,27 @@ const activitiesList = [
     "Read a book",
     "Learn a new programming language",
     "Cook a new recipe",
-    "Practice meditation"
+    "Practice meditation",
+    "Ride a bike",
+    "Play video games",
+    "Press the button above",
+    "Visit a museum",
+    "Start mewing"
 ];
+
+function createDiv(){
+    const newArr = [
+
+    ]
+    DOMSelectors.gallery.insertAdjacentHTML("beforeend", `<div class=favorite-gallery></div>`);
+}
+createDiv()
 
 function createCard(activity) {
     const card = document.createElement('div');
     card.classList.add('card');
     card.innerHTML = `<p>${activity}</p>`;
+    
     
     const favoriteButton = document.createElement('button');
     favoriteButton.classList.add('favorite-button');
@@ -29,10 +43,10 @@ function createCard(activity) {
 
            
             const newRandomIndex = Math.floor(Math.random() * activitiesList.length);
-            const newRandomActivity = activitiesList[newRandomIndex];
+            const newRandomActivity = activitiesList[newRandomIndex].push(newArr);
 
             const newCard = createCard(newRandomActivity);
-            DOMSelectors.gallery.replaceChild(newCard, card);
+            DOMSelectors.gallery.appendChild(newCard, card);
         } else {
             console.error("Favorites container not found");
         }

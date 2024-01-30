@@ -19,6 +19,14 @@
 }
 
 .favorites {
-    float: right; /* Align the favorites container to the right */
-    padding: 10px;
+    float: right;
+    margin-bottom: 100px;
+    display: block;
+}
+
+.favorite-gallery {
+    height: 100px;
+    border: 2px solid black;
+    width: 50%;
+    float:right;
 }
