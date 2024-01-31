@@ -1,8 +1,23 @@
+body {
+    display: flex;
+}
+
 .gallery {
     display: flex;
     flex-wrap: wrap;
     flex-direction: column;
     width: 50%;
+}
+
+.favorite-header {
+    margin-right: 10px;
+    margin-top: 0;
+}
+
+.favorite-gallery {
+    border: 2px solid black;
+    width: auto;
+    margin-left: auto; 
 }
 
 .card {
@@ -23,26 +38,13 @@
     border-radius: 15px;
 }
 
-.favorite-gallery {
-    border: 2px solid black;
-    width: 50%;
-    float: right;
-}
-
 .favorite-card {
     border: 1px solid black;
     padding: 5%;
     border-radius: 10px;
 }
 
-
-body {
-    display: flex;
-}
-
 .mainButton {
     border-radius: 20px;
     background-color: lightgoldenrodyellow;
 }
-
-
