@@ -47,4 +47,5 @@ body {
 .mainButton {
     border-radius: 20px;
     background-color: lightgoldenrodyellow;
+    cursor: pointer;
 }

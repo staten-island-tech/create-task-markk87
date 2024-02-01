@@ -17,7 +17,6 @@ const activitiesList = [
   "Play video games",
   "Press the button above",
   "Visit a museum",
-  "Start mewing",
 ];
 
 function getRandomUnusedActivity() {
