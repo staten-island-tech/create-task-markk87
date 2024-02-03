@@ -36,6 +36,7 @@ body {
     padding: 5px 10px;
     cursor: pointer;
     border-radius: 15px;
+    font-size: 1.15rem;
 }
 
 .favorite-card {
@@ -48,4 +49,6 @@ body {
     border-radius: 20px;
     background-color: lightgoldenrodyellow;
     cursor: pointer;
+    width: 15rem;
+    height: 10rem;
 }

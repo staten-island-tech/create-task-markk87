@@ -20,7 +20,7 @@ const activitiesList = [
 ];
 
 function getRandomUnusedActivity() {
-  const unusedActivities = activitiesList.filter(activity => !usedActivities.includes(activity));
+  const unusedActivities = activitiesList.filter((activity) => !usedActivities.includes(activity));
   if (unusedActivities.length === 0) {
     usedActivities.length = 0;
     return activitiesList[Math.floor(Math.random() * activitiesList.length)];
@@ -45,23 +45,18 @@ function createCard(activity) {
     card.classList.add("favorited");
 
     if (DOMSelectors.favorites) {
-      if (!favoritesList.includes(activity)) {
-        favoritesList.push(activity);
+      processActivities([activity]);
 
-        const favoriteCard = createFavoriteCard(activity);
-        DOMSelectors.favorites.appendChild(favoriteCard);
+      DOMSelectors.gallery.removeChild(card);
 
-        DOMSelectors.gallery.removeChild(card);
-
-        const randomActivity = getRandomUnusedActivity();
-        const newCard = createCard(randomActivity);
-        DOMSelectors.gallery.appendChild(newCard);
-      }
-
-      favoriteButton.disabled = true;
+      const randomActivity = getRandomUnusedActivity();
+      const newCard = createCard(randomActivity);
+      DOMSelectors.gallery.appendChild(newCard);
     } else {
       console.error("Favorites container not found");
     }
+
+    favoriteButton.disabled = true;
   });
 
   card.appendChild(favoriteButton);
@@ -76,10 +71,30 @@ function createFavoriteCard(activity) {
   return favoriteCard;
 }
 
+function processActivities(activities) {
+  for (let i = 0; i < activities.length; i++) {
+    const currentActivity = activities[i];
+
+    if (!favoritesList.includes(currentActivity)) {
+      favoritesList.push(currentActivity);
+
+      const favoriteCard = createFavoriteCard(currentActivity);
+
+      if (DOMSelectors.favorites) {
+        DOMSelectors.favorites.appendChild(favoriteCard);
+      } else {
+        console.error("Favorites container not found");
+      }
+    } else {
+      alert("This item already exists in your favorites section");
+    }
+  }
+}
+
 DOMSelectors.button.addEventListener("click", function (e) {
   e.preventDefault();
   if (DOMSelectors.favorites) {
-    DOMSelectors.gallery.innerHTML = '';
+    DOMSelectors.gallery.innerHTML = "";
 
     for (let i = 0; i < 1; i++) {
       const randomActivity = getRandomUnusedActivity();
